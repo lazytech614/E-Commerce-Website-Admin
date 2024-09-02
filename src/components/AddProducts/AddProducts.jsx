@@ -4,7 +4,7 @@ import MultiSelectDropdown from '../MultiSelectDropDown/MultiSelectDropDown';
 import upload_area from '/upload_area.svg';
 
 export const AddProducts = () => {
-    const http://localhost:4000 = 'http://localhost:4000'
+    const baseURL = "http://localhost:4000"
 
     const [productDetails, setProductDetails] = useState({
         name: "",
@@ -46,7 +46,7 @@ export const AddProducts = () => {
         let formData = new FormData();
         formData.append('product', image);
 
-        await fetch(`${http://localhost:4000}/upload`, {
+        await fetch(`${baseURL}/upload`, {
             method: 'POST',
             headers: {
                 Accept: 'application/json'
@@ -58,7 +58,7 @@ export const AddProducts = () => {
 
         if(responseData.success){
             product.image = responseData.image_url;
-            await fetch(`${http://localhost:4000}/addproduct`, {
+            await fetch(`${baseURL}/addproduct`, {
                 method: 'POST',
                 headers: {
                     Accept: "application/json",
